@@ -1,7 +1,7 @@
-import Loader from '../UI/Loader';
-import Error from '../UI/Error';
+import Loader from './Loader';
+import Error from './Error';
 
 export {
-  Loader,
-  Error,
+    Loader,
+    Error,
 };
