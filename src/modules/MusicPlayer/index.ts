@@ -1,1 +1,1 @@
-export {MusicPlayer} from './components/MusicPlayer';
+export { MusicPlayer } from './components/MusicPlayer';

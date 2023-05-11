@@ -5,7 +5,7 @@ import { Track } from "@/redux/services/types";
 export const shazamApi = createApi({
     reducerPath: 'shazam/api',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://shazam.p.rapidapi.com1',
+        baseUrl: 'https://shazam.p.rapidapi.com',
         prepareHeaders: (headers) => {
             headers.set('X-RapidAPI-Key', '36269222fcmshe1e863675254b57p150e25jsn55a96dd36ce6');
             headers.set('X-RapidAPI-Host', 'shazam.p.rapidapi.com');
