@@ -1,10 +1,21 @@
 import { SongCard } from '@components/index';
-import {Error, Loader} from '@UI/index';
-import {genres} from "@assets/constants";
+import { Error, Loader } from '@UI/index';
+import { genres } from "@assets/constants";
+import { useGetTopChartsQuery } from '@/redux/services/shazam.api';
 
 const DiscoverPage = () => {
+    const { data, isFetching, error } = useGetTopChartsQuery();
+
+    console.log(data);
+
+
     console.log(genres)
     const genreTitle = 'Pop';
+
+    if (isFetching) return <Loader title="Loading songs..." />;
+
+    if (error) return <Error />;
+
 
     return (
         <div className="flex flex-col ">
@@ -17,7 +28,7 @@ const DiscoverPage = () => {
                     name=""
                     id=""
                     className="bg-black text-gray-300 p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5"
-                    onChange={() => {}}
+                    onChange={() => { }}
                 >
                     {genres.map((genre) =>
                         <option value={genre.value} key={genre.value}>{genre.title}</option>
@@ -26,11 +37,11 @@ const DiscoverPage = () => {
             </div>
 
             <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-                {[1,2,3,5,6,7,8,9,10].map((song, i) => (
+                {data?.map((song, i) => (
                     <SongCard
-                     key={song.key}
-                     song={song}
-                     i={i}
+                        key={song.key}
+                        song={song}
+                        i={i}
                     />
                 ))}
             </div>
