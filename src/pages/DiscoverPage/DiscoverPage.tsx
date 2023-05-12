@@ -2,14 +2,14 @@ import { SongCard } from '@components/index';
 import { Error, Loader } from '@UI/index';
 import { genres } from "@assets/constants";
 import { useGetTopChartsQuery } from '@/redux/services/shazam.api';
+import {useDispatch, useSelector} from "react-redux";
+import {useTDispatch, useTSelector} from "@hooks/redux";
 
 const DiscoverPage = () => {
+    const dispatch = useTDispatch();
+    const { activeSong, isPlaying } = useTSelector((state) => state.player);
     const { data, isFetching, error } = useGetTopChartsQuery();
 
-    console.log(data);
-
-
-    console.log(genres)
     const genreTitle = 'Pop';
 
     if (isFetching) return <Loader title="Loading songs..." />;
@@ -41,6 +41,9 @@ const DiscoverPage = () => {
                     <SongCard
                         key={song.key}
                         song={song}
+                        isPlaying={isPlaying}
+                        activeSong={activeSong}
+                        data={data}
                         i={i}
                     />
                 ))}

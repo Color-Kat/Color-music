@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { nextSong, prevSong, playPause } from '@/redux/features/playerSlice';
@@ -22,7 +22,7 @@ export const MusicPlayer = () => {
         if (currentSongs.length) dispatch(playPause(true));
     }, [currentIndex]);
 
-    const handlePlayPause = () => {
+    const handlePlayPause = useCallback(() => {
         if (!isActive) return;
 
         if (isPlaying) {
@@ -30,9 +30,9 @@ export const MusicPlayer = () => {
         } else {
             dispatch(playPause(true));
         }
-    };
+    }, [isActive, isPlaying]);
 
-    const handleNextSong = () => {
+    const handleNextSong = useCallback(() => {
         dispatch(playPause(false));
 
         if (!shuffle) {
@@ -40,9 +40,9 @@ export const MusicPlayer = () => {
         } else {
             dispatch(nextSong(Math.floor(Math.random() * currentSongs.length)));
         }
-    };
+    }, [shuffle, currentIndex, currentSongs]);
 
-    const handlePrevSong = () => {
+    const handlePrevSong = useCallback(() => {
         if (currentIndex === 0) {
             dispatch(prevSong(currentSongs.length - 1));
         } else if (shuffle) {
@@ -50,7 +50,7 @@ export const MusicPlayer = () => {
         } else {
             dispatch(prevSong(currentIndex - 1));
         }
-    };
+    }, [shuffle, currentIndex, currentSongs]);
 
     return (
         <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">

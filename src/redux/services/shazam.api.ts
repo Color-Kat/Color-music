@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { RootObject } from "@/redux/services/types";
-import { Track } from "@/redux/services/types";
+import { ISong } from "@/redux/services/types";
 
 export const shazamApi = createApi({
     reducerPath: 'shazam/api',
@@ -14,7 +14,7 @@ export const shazamApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getTopCharts: builder.query<Track[], any>({
+        getTopCharts: builder.query<ISong[], any>({
             query: () => '/charts/track',
             transformResponse: (response: RootObject) => response.tracks
         })

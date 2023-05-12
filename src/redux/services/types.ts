@@ -1,12 +1,12 @@
 export interface RootObject {
     properties: Properties;
-    tracks: Track[];
+    tracks: ISong[];
 }
 
 export interface Properties {
 }
 
-export interface Track {
+export interface ISong {
     artists: Artist[];
     highlightsurls: Highlightsurls;
     hub: Hub;

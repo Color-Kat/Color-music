@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {BsFillVolumeUpFill, BsVolumeDownFill, BsFillVolumeMuteFill} from 'react-icons/bs';
 
 const VolumeBar = ({value, min, max, onChange, setVolume}) => (
@@ -18,4 +18,4 @@ const VolumeBar = ({value, min, max, onChange, setVolume}) => (
     </div>
 );
 
-export default VolumeBar;
+export default memo(VolumeBar);
