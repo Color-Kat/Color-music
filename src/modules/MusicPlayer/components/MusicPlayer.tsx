@@ -54,7 +54,9 @@ export const MusicPlayer = () => {
 
     return (
         <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">
+
             <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} />
+
             <div className="flex-1 flex flex-col items-center justify-center">
                 <Controls
                     isPlaying={isPlaying}
@@ -88,7 +90,15 @@ export const MusicPlayer = () => {
                     onLoadedData={(event) => setDuration(event.target.duration)}
                 />
             </div>
-            <VolumeBar value={volume} min="0" max="1" onChange={(event) => setVolume(event.target.value)} setVolume={setVolume} />
+
+            <VolumeBar
+                value={volume}
+                min="0"
+                max="1"
+                onChange={useCallback((event) => setVolume(event.target.value), [])}
+                setVolume={setVolume}
+            />
+
         </div>
     );
 };
