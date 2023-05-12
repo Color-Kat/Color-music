@@ -21,13 +21,13 @@ export const PlayPause: React.FC<PlayPauseProps> = ({
     if(isPlaying && activeSong?.title === song.title)
         return <FaPauseCircle
             size={35}
-            className="text-gray-300 animate-scalepulse shadow-md rounded-full"
+            className="text-violet-200 hover:text-violet-300 transition-colors animate-scalepulse shadow-md rounded-full"
             onClick={handlePause}
         />
     else
         return <FaPlayCircle
             size={35}
-            className="text-gray-300 shadow-md rounded-full"
+            className="text-violet-200 hover:text-violet-300 transition-colors shadow-md rounded-full"
             onClick={handlePlay}
         />
 }

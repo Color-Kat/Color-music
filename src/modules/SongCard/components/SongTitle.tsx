@@ -8,7 +8,7 @@ interface SongTitleProps {
 
 export const SongTitle: React.FC<SongTitleProps> = ({song}) => {
     return (
-        <p className="font-semibold text-lg text-white truncate">
+        <p className="font-semibold text-lg text-violet-100 truncate">
             <Link to={`/songs/${song?.key}`}>
                 {song.title}
             </Link>

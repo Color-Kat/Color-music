@@ -23,20 +23,21 @@ const Controls = ({
         {currentSongs?.length &&
             <MdSkipPrevious
                 size={30}
-                color="#FFF"
-                className="cursor-pointer"
+                className="cursor-pointer text-violet-200 hover:text-violet-300"
                 onClick={handlePrevSong}
             />
         }
 
         {isPlaying ? (
-            <BsFillPauseFill size={45} onClick={handlePlayPause} className="cursor-pointer text-white hover:text-violet-400" />
+            <BsFillPauseFill size={45} onClick={handlePlayPause} className="cursor-pointer text-violet-200 hover:text-violet-400" />
         ) : (
-            <BsFillPlayFill size={45} onClick={handlePlayPause} className="cursor-pointer text-white hover:text-violet-400" />
+            <BsFillPlayFill size={45} onClick={handlePlayPause} className="cursor-pointer text-violet-200 hover:text-violet-400" />
         )}
 
         {currentSongs?.length &&
-            <MdSkipNext size={30} color="#FFF" className="cursor-pointer" onClick={handleNextSong} />}
+            <MdSkipNext size={30} className="cursor-pointer text-violet-200 hover:text-violet-300" onClick={handleNextSong} />
+        }
+
         <BsShuffle size={20} onClick={() => setShuffle((prev) => !prev)}
             className={`hidden sm:block cursor-pointer ${shuffle ? 'text-violet-500' : 'text-white'}`} />
     </div>
