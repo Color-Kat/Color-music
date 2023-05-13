@@ -24,6 +24,7 @@ export const SongCard: React.FC<SongCardProps> = React.memo(({
 
     const dispatch = useTDispatch();
 
+    // TODO move functions to parent
     const handlePauseClick = () => {
         dispatch(playPause(false));
     }
