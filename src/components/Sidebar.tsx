@@ -12,9 +12,9 @@ const NavLinks = ({handleClick}: { handleClick: () => void }) => (
             <NavLink
                 key={link.name}
                 to={link.to}
-
                 className={({isActive}) => (`flex flex-row justify-start items-center my-8 text-lg font-medium md:hover:text-violet-400 ${isActive ? 'md:text-[#8b65ea] text-violet-100' : 'text-violet-300'}`)}
                 onClick={() => handleClick && handleClick()}
+                end
             >
                 <link.icon className="w-6 h-6 mr-2"/>
                 {link.name}
