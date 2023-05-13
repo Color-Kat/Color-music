@@ -9,6 +9,7 @@
 
 .active svg {
     @apply text-cyan-500;
+    color : #8b65ea;
 }
 
 .bar:nth-child(2) {
