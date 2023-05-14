@@ -10,6 +10,7 @@ import { playPause, setActiveSong } from "@/redux/features/playerSlice";
 import { Link } from "react-router-dom";
 import { TopChartHeader } from "./TopChartHeader";
 import { TopChartCard } from "./TopChartCard";
+import { usePlayPauseHandler } from "@hooks/usePlayPauseHandler";
 
 export const TopPlay = React.memo(() => {
     const dispatch = useTDispatch();
@@ -19,19 +20,12 @@ export const TopPlay = React.memo(() => {
 
     const topPlays = data?.slice(0, 5);
 
-    const handlePauseClick = () => {
-        dispatch(playPause(false));
-    }
-
-    const handlePlayClick = (song, i) => {
-        dispatch(setActiveSong({song, data, i}));
-        dispatch(playPause(true));
-    }
+    const {handlePauseClick, handlePlayClickWithArgs} = usePlayPauseHandler({data});
 
     // TODO
     useEffect(() => {
         divRef.current.scrollIntoView({bahavior: 'smooth'});
-    }, [isFetching]);
+    });
 
     return (
         <div
@@ -53,7 +47,7 @@ export const TopPlay = React.memo(() => {
                             isPlaying={isPlaying}
                             activeSong={activeSong}
                             handlePauseClick={handlePauseClick}
-                            handlePlayClick={handlePlayClick}
+                            handlePlayClick={handlePlayClickWithArgs}
                         />
                     ))}
                 </div>

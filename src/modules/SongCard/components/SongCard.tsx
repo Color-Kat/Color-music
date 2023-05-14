@@ -5,6 +5,7 @@ import { PlayPause } from "@components/PlayPause";
 import { SongTitle } from "@modules/SongCard/components/SongTitle";
 import { SongSubtitle } from "@modules/SongCard/components/SongSubtitle";
 import { useTDispatch } from "@hooks/redux";
+import { usePlayPauseHandler } from "@hooks/usePlayPauseHandler";
 
 interface SongCardProps {
     i: number;
@@ -21,18 +22,11 @@ export const SongCard: React.FC<SongCardProps> = React.memo(({
     data,
     i
 }) => {
-
-    const dispatch = useTDispatch();
-
-    // TODO move functions to parent
-    const handlePauseClick = () => {
-        dispatch(playPause(false));
-    }
-
-    const handlePlayClick = () => {
-        dispatch(setActiveSong({ song, data, i }));
-        dispatch(playPause(true));
-    }
+    const {handlePauseClick, handlePlayClick} = usePlayPauseHandler({
+        song,
+        data,
+        i
+    });
 
     return (
         <div

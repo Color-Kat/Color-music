@@ -18,7 +18,7 @@ export const DetailsHeader: React.FC<DetailHeaderProps> = ({
 
     return (
         <div className="relative w-full flex flex-col">
-            <div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 h-28 rounded-l-full"/>
+            <div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 h-28 rounded-md"/>
 
             <div className="absolute inset-0 flex items-center">
                 <img
@@ -45,8 +45,19 @@ export const DetailsHeader: React.FC<DetailHeaderProps> = ({
                             </p>
                         </Link>
                     )}
+
+                    <p className="text-base text-violet-300 mt-2">
+                        {artistId
+                            ? artist?.genreNames[0]
+                            : songData?.genres?.primary
+
+                        }
+                    </p>
                 </div>
             </div>
+
+            {/* Bottom gap */}
+            <div className="w-full sm:h-44 h-24 sm:-mb-20"/>
         </div>
     );
 }
