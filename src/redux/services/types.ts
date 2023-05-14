@@ -1,9 +1,6 @@
 export interface RootObject {
-    properties: Properties;
+    properties: any;
     tracks: ISong[];
-}
-
-export interface Properties {
 }
 
 export interface ISong {
@@ -13,13 +10,40 @@ export interface ISong {
     images: Images;
     key: string;
     layout: string;
-    properties: Properties;
+    properties: any;
     share: Share;
     subtitle: string;
     title: string;
-    type: TrackType;
+    type: string;
     url: string;
 }
+
+export interface ISongDetails {
+    layout: string;
+    type: string;
+    key: string;
+    title: string;
+    subtitle: string;
+    images: Images;
+    share: Share;
+    hub: Hub;
+    url: string;
+    artists: {
+        id: string;
+        adamid: string;
+    }[];
+    isrc: string;
+    genres: {
+        primary: string;
+    };
+    urlparams: {
+        "{tracktitle}": string
+        "{trackartist}": string
+    };
+    myshazam: any;
+    albumadamid: string;
+}
+
 
 export interface Artist {
     adamid: string;
@@ -34,7 +58,7 @@ export interface Highlightsurls {
 
 export interface Hub {
     actions: Action[];
-    displayname: Displayname;
+    displayname: string;
     explicit: boolean;
     image: string;
     options: Option[];
@@ -42,24 +66,9 @@ export interface Hub {
 
 export interface Action {
     id?: string;
-    name: Name;
-    type: ActionType;
+    name: string;
+    type: string;
     uri?: string;
-}
-
-export enum Name {
-    Apple = "apple",
-    HubApplemusicDeeplink = "hub:applemusic:deeplink",
-}
-
-export enum ActionType {
-    Applemusicopen = "applemusicopen",
-    Applemusicplay = "applemusicplay",
-    URI = "uri",
-}
-
-export enum Displayname {
-    AppleMusic = "APPLE MUSIC",
 }
 
 export interface Option {
@@ -86,8 +95,4 @@ export interface Share {
     subject: string;
     text: string;
     twitter: string;
-}
-
-export enum TrackType {
-    Music = "MUSIC",
 }

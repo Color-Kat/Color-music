@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { RootObject } from "@/redux/services/types";
+import { ISongDetails, RootObject } from "@/redux/services/types";
 import { ISong } from "@/redux/services/types";
 
 export const shazamApi = createApi({
@@ -17,10 +17,14 @@ export const shazamApi = createApi({
         getTopCharts: builder.query<ISong[], any>({
             query: () => '/charts/track',
             transformResponse: (response: RootObject) => response.tracks
+        }),
+        getSongDetails: builder.query<ISongDetails, number>({
+            query: (songId) => `/songs/get-details?key=${songId}`
         })
     })
 });
 
 export const {
-    useGetTopChartsQuery
+    useGetTopChartsQuery,
+    useGetSongDetailsQuery
 } = shazamApi;
