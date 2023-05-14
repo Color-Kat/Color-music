@@ -9,7 +9,7 @@ const Track = ({isPlaying, isActive, activeSong}) => (
         </div>
 
         <div className="w-max">
-            <p className="truncate text-violet-200 hover:text-violet-400 cursor-pointer font-bold text-lg">
+            <p className="truncate lg:max-w-full max-w-[300px] text-violet-200 hover:text-violet-400 cursor-pointer font-bold text-lg">
                 {activeSong?.title ? activeSong?.title : 'No active Song'}
             </p>
             <p className="truncate text-violet-400 cursor-pointer">
