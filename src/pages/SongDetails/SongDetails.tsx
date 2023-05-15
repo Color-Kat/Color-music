@@ -28,6 +28,7 @@ const SongDetails = () => {
                 artistId={""}
                 songData={songData}
                 // artistData={{}}
+
             />
 
             <div className="mb-10 z-10">
@@ -36,8 +37,8 @@ const SongDetails = () => {
                 </h2>
 
                 <div className="mt-5">
-                    {songData?.sections[1].type === 'LYRICS'
-                        ? songData?.sections[1].text.map((line, i) => (
+                    {songData?.sections[1]?.type === 'LYRICS'
+                        ? songData?.sections[1]?.text.map((line, i) => (
                             <p
                                 key={i}
                                 className="text-gray-400 text-base my-1"
@@ -49,13 +50,13 @@ const SongDetails = () => {
             </div>
 
             <RelatedSongs
-                data={relatedSongs}
+                songs={relatedSongs}
                 isPlaying={isPlaying}
                 activeSong={activeSong}
+                artistId={null}
                 handlePauseClick={handlePauseClick}
-                handlePlayClick={handlePlayClickWithArgs}
+                handlePlayClickWithArgs={handlePlayClickWithArgs}
             />
-
         </div>
     )
 };

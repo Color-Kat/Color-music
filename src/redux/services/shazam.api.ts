@@ -22,7 +22,8 @@ export const shazamApi = createApi({
             query: (songId) => `/songs/get-details?key=${songId}`
         }),
         getSongRelated: builder.query<any, number>({
-            query: (songId) => `songs/list-recommendations?key=${songId}`
+            query: (songId) => `songs/list-recommendations?key=${songId}&locale=en-US`,
+            transformResponse: (response) => response.tracks
         })
     })
 });

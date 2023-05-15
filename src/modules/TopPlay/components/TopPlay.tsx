@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import { useTDispatch, useTSelector } from "@hooks/redux";
 import { useGetTopChartsQuery } from "@/redux/services/shazam.api";
-import { playPause, setActiveSong } from "@/redux/features/playerSlice";
 import { Link } from "react-router-dom";
 import { TopChartHeader } from "./TopChartHeader";
 import { TopChartCard } from "./TopChartCard";
