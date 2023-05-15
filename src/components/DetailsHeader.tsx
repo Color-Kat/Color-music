@@ -1,11 +1,12 @@
 import React from "react";
 import { ISongDetails } from "@/redux/services/types";
 import { Link } from "react-router-dom";
+import { IArtist } from "@/redux/services/artistTypes";
 
 interface DetailHeaderProps {
-    artistId: number;
-    artistData: any;
-    songData: ISongDetails
+    artistId?: number;
+    artistData?: IArtist;
+    songData?: ISongDetails
 }
 
 export const DetailsHeader: React.FC<DetailHeaderProps> = ({
@@ -14,7 +15,7 @@ export const DetailsHeader: React.FC<DetailHeaderProps> = ({
                                                                songData
                                                            }) => {
 
-    const artist = artistData?.artists[artistId]?.attributes;
+    const artist = artistData?.attributes;
 
     return (
         <div className="relative w-full flex flex-col">
@@ -50,7 +51,6 @@ export const DetailsHeader: React.FC<DetailHeaderProps> = ({
                         {artistId
                             ? artist?.genreNames[0]
                             : songData?.genres?.primary
-
                         }
                     </p>
                 </div>

@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { ISongDetails, RootObject } from "@/redux/services/types";
 import { ISong } from "@/redux/services/types";
+import { IArtist } from "@/redux/services/artistTypes";
 
 export const shazamApi = createApi({
     reducerPath: 'shazam/api',
@@ -24,6 +25,10 @@ export const shazamApi = createApi({
         getSongRelated: builder.query<any, number>({
             query: (songId) => `songs/list-recommendations?key=${songId}&locale=en-US`,
             transformResponse: (response) => response.tracks
+        }),
+        getArtistDetails: builder.query<IArtist, number>({
+            query: (artistId) => `/artists/get-details?id=${artistId}&l:en-US`,
+            transformResponse: (response) => response.data[0]
         })
     })
 });
@@ -31,5 +36,6 @@ export const shazamApi = createApi({
 export const {
     useGetTopChartsQuery,
     useGetSongDetailsQuery,
-    useGetSongRelatedQuery
+    useGetSongRelatedQuery,
+    useGetArtistDetailsQuery
 } = shazamApi;
