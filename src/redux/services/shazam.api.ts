@@ -29,13 +29,14 @@ export const shazamApi = createApi({
         getArtistDetails: builder.query<IArtist, number>({
             query: (artistId) => `/artists/get-details?id=${artistId}&l:en-US`,
             transformResponse: (response) => response.data[0]
-        })
+        }),
     })
 });
 
 export const {
-    useGetTopChartsQuery,
-    useGetSongDetailsQuery,
-    useGetSongRelatedQuery,
-    useGetArtistDetailsQuery
-} = shazamApi;
+                 useGetTopChartsQuery,
+                 useGetSongDetailsQuery,
+                 useGetSongRelatedQuery,
+                 useGetArtistDetailsQuery,
+                 useGetSongsByCountryQuery
+             } = shazamApi;

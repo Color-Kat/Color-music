@@ -31,7 +31,7 @@ const App = () => {
                     </div>
                     <div className="xl:sticky relative top-0 h-fit xl:pb-40">
                         {/*<div className="xl:sticky relative top-0 h-fit xl:overflow-y-scroll hide-scrollbar max-h-screen pb-48">*/}
-                        <TopPlay/>
+                        {/*<TopPlay/>*/}
                     </div>
                 </div>
             </div>

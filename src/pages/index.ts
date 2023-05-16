@@ -4,7 +4,7 @@ import ArtistDetails from './ArtistDetails/ArtistDetails';
 import SongDetails from './SongDetails/SongDetails';
 import Search from './Search';
 import TopCharts from './TopCharts';
-import AroundYou from './AroundYou';
+import AroundYou from './AroundYou/AroundYou';
 
 export {
     DiscoverPage,
