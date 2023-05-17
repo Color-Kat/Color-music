@@ -22,7 +22,6 @@ export const RelatedSongs: React.FC<TopChartCardProps> = React.memo(({
 
     const {handlePlayClickWithArgs, handlePauseClick} = usePlayPauseHandler({data: songs});
 
-
     return (
         <div className="flex flex-col">
             <h1 className="font-bold text-3xl text-violet-200">Related Songs:</h1>
@@ -32,7 +31,7 @@ export const RelatedSongs: React.FC<TopChartCardProps> = React.memo(({
 
                 {songs?.map((song, i) => (
                     <SongBar
-                        key={`${song.key}-${artistId}`}
+                        key={`${song.id}-${artistId}`}
                         i={i}
                         artistId={artistId}
                         song={song}

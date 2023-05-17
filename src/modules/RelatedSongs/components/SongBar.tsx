@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { PlayPause } from '@components/PlayPause';
 import { MdMusicOff } from "react-icons/md";
@@ -19,7 +19,7 @@ export const SongBar = ({
 
     return (
         <div
-            className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${activeSong?.title === song?.title ? 'bg-[#4c426e]' : 'bg-transparent'} py-2 p-4 rounded-lg cursor-pointer mb-2`}
+            className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${activeSong?.title === song?.attributes.name ? 'bg-[#4c426e]' : 'bg-transparent'} py-2 p-4 rounded-lg cursor-pointer mb-2`}
         >
             <h3 className="font-bold text-base text-white mr-3">
                 {i + 1}.
@@ -54,17 +54,17 @@ export const SongBar = ({
                 </div>
             </div>
 
-            {!artistId
-                ? (
-                    <PlayPause
-                        isPlaying={isPlaying}
-                        activeSong={activeSong}
-                        song={song}
-                        handlePause={handlePauseClick}
-                        handlePlay={() => handlePlayClick(song, i)}
-                    />
-                )
-                : null}
+            {/*{artistId*/}
+            {/*    ? (*/}
+            {/*        <PlayPause*/}
+            {/*            isPlaying={isPlaying}*/}
+            {/*            activeSong={activeSong}*/}
+            {/*            song={song}*/}
+            {/*            handlePause={handlePauseClick}*/}
+            {/*            handlePlay={() => handlePlayClick(song.attributes, i)}*/}
+            {/*        />*/}
+            {/*    )*/}
+            {/*    : null}*/}
         </div>
     );
 }

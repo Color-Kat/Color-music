@@ -23,8 +23,12 @@ export const shazamApi = createApi({
             query: (songId) => `/songs/get-details?key=${songId}`
         }),
         getSongRelated: builder.query<any, number>({
-            query: (songId) => `songs/list-recommendations?key=${songId}&locale=en-US`,
+            query: (songId) => `/songs/list-recommendations?key=${songId}&locale=en-US`,
             transformResponse: (response) => response.tracks
+        }),
+        getArtistDetailsWithSongs: builder.query<any, number>({
+            query: (artistId) => `/artists/get-summary?id=${artistId}`,
+            transformResponse: (response) => response.resources
         }),
         getArtistDetails: builder.query<IArtist, number>({
             query: (artistId) => `/artists/get-details?id=${artistId}&l:en-US`,
@@ -38,5 +42,6 @@ export const {
                  useGetSongDetailsQuery,
                  useGetSongRelatedQuery,
                  useGetArtistDetailsQuery,
+                 useGetArtistDetailsWithSongsQuery,
                  useGetSongsByCountryQuery
              } = shazamApi;
