@@ -3,6 +3,7 @@ import { useTSelector } from "@hooks/redux";
 import axios from "axios";
 import { genres } from "@assets/constants";
 import { SongCard } from "@modules/SongCard";
+import { PageTitle } from "@UI/PageTitle";
 
 const AroundYou = () => {
     const [country, setCountry] = useState('');
@@ -18,9 +19,10 @@ const AroundYou = () => {
 
     return (
         <div className="flex flex-col ">
-            <h2 className="font-bold text-3xl text-violet-200 text-left mt-4 mb-10">
+            <PageTitle>
                 Around You <span className="font-black text-violet-300">{country}</span>
-            </h2>
+            </PageTitle>
+
 
             <div className="w-full flex flex-col">
                 <p className="text-violet-300 text-lg my-3">Sorry, but we can't get tracks by county yet!</p>

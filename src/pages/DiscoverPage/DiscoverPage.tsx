@@ -3,6 +3,8 @@ import { genres } from "@assets/constants";
 import { useGetTopChartsQuery } from '@/redux/services/shazam.api';
 import {useTSelector} from "@hooks/redux";
 import {SongCard} from "@modules/SongCard/";
+import { PageTitle } from "@UI/PageTitle";
+import React from "react";
 
 const DiscoverPage = () => {
     const { activeSong, isPlaying } = useTSelector((state) => state.player);
@@ -17,9 +19,10 @@ const DiscoverPage = () => {
     return (
         <div className="flex flex-col ">
             <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
-                <h2 className="font-bold text-3xl text-white text-left">
+                <PageTitle>
                     Discover {genreTitle}
-                </h2>
+                </PageTitle>
+
 
                 <select
                     name=""

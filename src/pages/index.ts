@@ -1,10 +1,10 @@
 import DiscoverPage from './DiscoverPage/DiscoverPage';
-import TopArtists from './TopArtists';
 import ArtistDetails from './ArtistDetails/ArtistDetails';
 import SongDetails from './SongDetails/SongDetails';
 import Search from './Search';
 import TopCharts from './TopCharts/TopCharts';
 import AroundYou from './AroundYou/AroundYou';
+import TopArtists from './TopArtists/TopArtists';
 
 export {
     DiscoverPage,
