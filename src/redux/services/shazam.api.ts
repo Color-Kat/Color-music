@@ -3,8 +3,6 @@ import { ISongDetails, RootObject } from "@/redux/services/types";
 import { ISong } from "@/redux/services/types";
 import { IArtist } from "@/redux/services/artistTypes";
 
-console.log(import.meta.env.VITE_SHAZAM_RAPID_API_KEY)
-
 export const shazamApi = createApi({
     reducerPath: 'shazam/api',
     baseQuery: fetchBaseQuery({

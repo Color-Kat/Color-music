@@ -69,18 +69,18 @@ export const TopPlay = React.memo(() => {
                     modules={[FreeMode]}
                     className="mt-4"
                 >
-                    <SwiperSlide
-                        style={{width: '25%', height: 'auto'}}
-                        className="shadow-lg rounded-full animate-sliderrigh"
-                    >
-                        <a href="https://vk.com/dan1kkkkkkk" target="_blank">
-                            <img
-                                src="https://sun9-27.userapi.com/impg/af5nCDEkDmt2ULYpduaI83sODxQa_gtMpPGiHQ/oSRv2hb4RGo.jpg?size=2560x2560&quality=95&sign=1a2a5d31ccbe143450a17b6fabe2d1b6&type=album"
-                                alt="Dasha"
-                                className="rounded-full w-full object-cover"
-                            />
-                        </a>
-                    </SwiperSlide>
+                    {/*<SwiperSlide*/}
+                    {/*    style={{width: '25%', height: 'auto'}}*/}
+                    {/*    className="shadow-lg rounded-full animate-sliderrigh"*/}
+                    {/*>*/}
+                    {/*    <a href="https://vk.com/dan1kkkkkkk" target="_blank">*/}
+                    {/*        <img*/}
+                    {/*            src="https://sun9-27.userapi.com/impg/af5nCDEkDmt2ULYpduaI83sODxQa_gtMpPGiHQ/oSRv2hb4RGo.jpg?size=2560x2560&quality=95&sign=1a2a5d31ccbe143450a17b6fabe2d1b6&type=album"*/}
+                    {/*            alt="Dasha"*/}
+                    {/*            className="rounded-full w-full object-cover"*/}
+                    {/*        />*/}
+                    {/*    </a>*/}
+                    {/*</SwiperSlide>*/}
 
                     {topPlays?.map((song, i) => (
                         <SwiperSlide

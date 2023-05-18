@@ -15,12 +15,6 @@
     width: 100%;
 }
 
-/*@media not all and (hover: hover) {*/
-/*    html, body, .app-wrapper {*/
-/*        height: var(--app-height);*/
-/*    }*/
-/*}*/
-
 /* Active Navigation Link */
 .active {
     @apply text-cyan-500;
