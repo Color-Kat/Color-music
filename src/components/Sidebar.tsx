@@ -39,7 +39,7 @@ const Sidebar = React.memo(() => {
             </div>
 
             <div
-                className="absolute md:hidden block top-6 right-3 z-10"
+                className="absolute md:hidden block top-6 right-3 z-20"
                 onClick={() => setMobileMenuOpen(prev => !prev)}
             >
                 {mobileMenuOpen ? (

@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --app-height: 100%;
+}
+
+/*
+    Mobile 100vh fix
+ */
+.app-wrapper{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+/*@media not all and (hover: hover) {*/
+/*    html, body, .app-wrapper {*/
+/*        height: var(--app-height);*/
+/*    }*/
+/*}*/
+
 /* Active Navigation Link */
 .active {
     @apply text-cyan-500;
@@ -9,7 +28,7 @@
 
 .active svg {
     @apply text-cyan-500;
-    color : #8b65ea;
+    color: #8b65ea;
 }
 
 .bar:nth-child(2) {
