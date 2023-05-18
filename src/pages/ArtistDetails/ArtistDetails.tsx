@@ -11,6 +11,7 @@ const ArtistDetails = () => {
 
     const {activeSong, isPlaying} = useTSelector((state) => state.player);
     const {data, isFetching: isFetching, error} = useGetArtistDetailsWithSongsQuery(artistId);
+    console.log(data)
 
     const artistData = data ? Object.values(data?.artists ?? {})[0] : {};
     const songs = data ? Object.values(data?.songs ?? {}) : [];

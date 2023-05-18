@@ -5,7 +5,7 @@ export const TopChartHeader: React.FC<{
     title: string,
     to: string
 }> = React.memo(({ title, to }) => (
-    <div className="flex flex-row justify-between items-center">
+    <div className="flex flex-row justify-between items-center md:gap-48">
         <h2 className="font-bold text-2xl text-white">
             {title}
         </h2>

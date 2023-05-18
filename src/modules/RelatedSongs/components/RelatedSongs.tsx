@@ -22,6 +22,8 @@ export const RelatedSongs: React.FC<TopChartCardProps> = React.memo(({
 
     const {handlePlayClickWithArgs, handlePauseClick} = usePlayPauseHandler({data: songs});
 
+    console.log(songs)
+
     return (
         <div className="flex flex-col">
             <h1 className="font-bold text-3xl text-violet-200">Related Songs:</h1>

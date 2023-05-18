@@ -15,13 +15,13 @@ export const TopPlay = React.memo(() => {
     const dispatch = useTDispatch();
     const {activeSong, isPlaying} = useTSelector(state => state.player);
     const {data, isFetching,} = useGetTopChartsQuery();
-    const divRef = useRef(null);
 
     const topPlays = data?.slice(0, 5);
 
     const {handlePauseClick, handlePlayClickWithArgs} = usePlayPauseHandler({data});
 
     // TODO
+    const divRef = useRef(null);
     useEffect(() => {
         divRef.current.scrollIntoView({bahavior: 'smooth'});
     });
@@ -49,6 +49,8 @@ export const TopPlay = React.memo(() => {
                             handlePlayClick={handlePlayClickWithArgs}
                         />
                     ))}
+
+                    {!topPlays && <p className="text-gray-400">Loading...</p>}
                 </div>
 
             </div>
@@ -67,6 +69,19 @@ export const TopPlay = React.memo(() => {
                     modules={[FreeMode]}
                     className="mt-4"
                 >
+                    <SwiperSlide
+                        style={{width: '25%', height: 'auto'}}
+                        className="shadow-lg rounded-full animate-sliderrigh"
+                    >
+                        <a href="https://vk.com/dan1kkkkkkk" target="_blank">
+                            <img
+                                src="https://sun9-27.userapi.com/impg/af5nCDEkDmt2ULYpduaI83sODxQa_gtMpPGiHQ/oSRv2hb4RGo.jpg?size=2560x2560&quality=95&sign=1a2a5d31ccbe143450a17b6fabe2d1b6&type=album"
+                                alt="Dasha"
+                                className="rounded-full w-full object-cover"
+                            />
+                        </a>
+                    </SwiperSlide>
+
                     {topPlays?.map((song, i) => (
                         <SwiperSlide
                             key={song?.key}
@@ -82,6 +97,8 @@ export const TopPlay = React.memo(() => {
                             </Link>
                         </SwiperSlide>
                     ))}
+
+                    {/*{!topPlays && <p className="text-gray-400">Loading...</p>}*/}
                 </Swiper>
             </div>
 
