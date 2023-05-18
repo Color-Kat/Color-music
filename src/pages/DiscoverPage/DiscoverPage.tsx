@@ -1,14 +1,16 @@
 import { Error, Loader } from '@UI/index';
 import { genres } from "@assets/constants";
 import { useGetTopChartsQuery } from '@/redux/services/shazam.api';
-import {useTSelector} from "@hooks/redux";
+import { useTDispatch, useTSelector } from "@hooks/redux";
 import {SongCard} from "@modules/SongCard/";
+import { selectGenreListId } from "@/redux/features/playerSlice";
 
 const DiscoverPage = () => {
-    const { activeSong, isPlaying } = useTSelector((state) => state.player);
+    const dispatch = useTDispatch();
+    const { activeSong, isPlaying, genreListId  } = useTSelector((state) => state.player);
     const { data, isFetching, error } = useGetTopChartsQuery();
 
-    const genreTitle = 'Pop';
+    const genreTitle = genres.find(({value}) => value === genreListId)?.title;
 
     if (isFetching) return <Loader title="Loading songs..." />;
 
@@ -25,7 +27,8 @@ const DiscoverPage = () => {
                     name=""
                     id=""
                     className="bg-black text-gray-300 p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5"
-                    onChange={() => { }}
+                    value={genreListId || 'pop'}
+                    onChange={(e: any) => { dispatch(selectGenreListId(e.target.value)) }}
                 >
                     {genres.map((genre) =>
                         <option value={genre.value} key={genre.value}>{genre.title}</option>
